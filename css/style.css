@@ -51,7 +51,7 @@ main {
     height: 70px;
     background-color: #eaeaea;
     display: flex;
-    border-right: 1px solid #b1b1b1;
+    border-right: .1px solid #b1b1b1;
 }
 
 .main-left-top .user-box {
@@ -163,7 +163,7 @@ main {
     align-items: center;
     padding: 10px 5px 10px 20px;
     position: relative;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: .1px solid rgb(238, 237, 237);
 }
 
 .contact-box img {
@@ -192,6 +192,7 @@ main {
     right: 20px;
     top: 10px;
     color: #b1b1b1;
+    font-size: .7rem;
 }
 
 
@@ -248,25 +249,65 @@ main {
     width: 90%;
     height: 100%;
     margin: 0 auto;
-    background-color: rgba(250, 250, 210, 0.493);
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
+.main-right-center .container .mess {
+    padding: 15px;
+    max-width: 40%;
+    word-wrap: break-word;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    margin: 10px 0;
+
+}
+
+.mess-date {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    color: gray;
+    font-size: .6rem;
+}
+
+.container .received {
+    background-color: white;
+}
+
+.container .sent {
+    background-color: #d5f9ba;
+
+}
+
+.container .right-mess {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+
 .main-right-center .container .sent-message {
-    width: 60%;
+    /* max-width: 50%;
     padding: 20px;
     background-color: #d5f9ba;
     display: flex;
-    float: right;
+    float: left;
+    word-wrap: break-word; */
+
 }
 
 .main-right-center .container .message-received {
-    width: 60%;
+    /* max-width: 50%;
     padding: 20px;
-    background-color: #ffff;
-    
-}
+    position: relative;
+    /* left: calc(100% - 182px); */
+    /* background-color: #009688; */
+} 
 
 
 
