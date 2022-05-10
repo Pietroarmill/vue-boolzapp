@@ -18,7 +18,9 @@
     referrerpolicy="no-referrer"
     />
     <!-- Font Family -->
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -49,6 +51,8 @@
 
                 </div>
                 <div class="main-left-contacts">
+                    
+                    <!-- NOTIFICA desktop -->
                     <div class="notifications-box">
 
                        <div class="notifications-icon">
@@ -60,6 +64,39 @@
                        </div>
                         
                     </div>
+                    <!-- /NOTIFICA desktop -->
+
+                    <!-- Contacts Input -->
+                    <div class="contacts-input-box">
+                        <div class="contacts-input">
+                            <div class="input-icon">
+                                <label for="contacts"><i class="fas fa-search"></i></label>
+                            </div>
+                            <input type="text" name="" id="contacts" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                    </div>
+                    <!-- /Contacts Input -->
+
+                    <!-- Contacts List -->
+                    <div class="contacts-list-box">
+                        <div class="contact-box" v-for="(item, index) in contacts">
+                            <div class="contact-user">
+                                <div>
+                                    <img :src="'img/avatar'+ item.avatar +'.jpg'" alt="">
+                                </div>
+
+                                
+                                <div class="contact-name-date">
+                                    <h3>{{ item.name }}</h3>
+                                    <span class="contact-date">12:00</span>
+                                    <span class="contact-text">{{ item.messages[1].message }}</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Contacts List -->
+
                 </div>
                 <!-- /Left Main Top -->
            </div>
