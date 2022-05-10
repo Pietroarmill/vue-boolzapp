@@ -19,6 +19,11 @@ html {
     font-size: 1.2rem;
 }
 
+.gray-color {
+    color: gray;
+    font-size: .8rem;
+}
+
 /* MAIN */
 
 main {
@@ -44,7 +49,7 @@ main {
 .main-left-top {
     width: 100%;
     height: 70px;
-    background-color: #e9e8e8;
+    background-color: #eaeaea;
     display: flex;
     border-right: 1px solid #b1b1b1;
 }
@@ -126,6 +131,7 @@ main {
 
 .contacts-input .input-icon {
     width: 80px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,6 +143,12 @@ main {
     width: calc(100% - 80px);
     border: transparent;
     padding-left: 20px;
+    outline: none;
+    transition: .1s;
+}
+
+.contacts-input input:focus {
+    border: 1px solid rgba(211, 211, 211, 0.712);
 }
 
 /* Contacts list */
@@ -191,4 +203,79 @@ main {
     background-color: lightpink;
 }
 
+/* Main Right Top */
+.main-right-top {
+    height: 70px;
+    width: 100%;
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+}
+
+.main-right-top .contact-user {
+    width: 60%;
+    margin-left: 20px;
+}
+
+.main-right-top .contact-user img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.main-right-top .user-button {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    color: #b1b1b1;
+}
+
+.main-right-top .user-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Main Right Center */
+.main-right-center {
+    width: 100%;
+    height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+}
+
+.main-right-center .container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rgba(250, 250, 210, 0.493);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-right-center .container .sent-message {
+    width: 60%;
+    padding: 20px;
+    background-color: #d5f9ba;
+    display: flex;
+    float: right;
+}
+
+.main-right-center .container .message-received {
+    width: 60%;
+    padding: 20px;
+    background-color: #ffff;
+    
+}
+
+
+
+
+
+/* Main Right Bottom */
+.main-right-bottom {
+    width: 100%;
+    height: 70px;
+    background-color: #eaeaea;
+}
 
