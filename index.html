@@ -129,7 +129,7 @@
                         </span>
                         <span class="user-name">
                             <span>{{ contacts[currentContact].name }}</span>
-                            <span class="gray-color">Ultimo accesso oggi alle 12:00</span>
+                            <span class="gray-color">{{ contacts[currentContact].messages[contacts[currentContact].messages.length - 1].date.substring(0,16) }}</span>
                         </span>
                     </div>
 
@@ -148,12 +148,19 @@
                         <!-- 'right-mess' : element.status === 'sent'  -->
                         <div
                         :class="element.status === 'sent' ? 'right-mess' : 'left-mess'"
-                        v-for="element in contacts[currentContact].messages"
+                        v-for="(element, index) in contacts[currentContact].messages"
                         >
                             <div :class="element.status === 'sent' ? 'mess sent' : 'mess received'">
                                 <span>
                                     {{ element.message }}
                                 </span>
+                                <div class="arrow-down" @click="showMainArrow(index)" >
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="main-arrow" :class="{'main-arrow-active' : currentMainArrow === index}">
+                                    <div class="info-message">Message info</div>
+                                    <div class="delete-message">Delete message</div>
+                                </div>
                                 <div class="mess-date">{{ element.date.substring(11,16) }}</div>
                             </div>
                         </div>

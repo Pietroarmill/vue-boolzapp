@@ -168,6 +168,10 @@ const app = new Vue(
             currentContact: 0,
             userMessageSent: '',
             searchContact: '',
+            // arrowClicked: false,
+            currentMainArrow: null,
+            counter: 0,
+
         },
         methods: {
             showChat(i) {
@@ -239,6 +243,17 @@ const app = new Vue(
                 console.log(Dd+Mm+Yy+h+m+s);
             
                 return Dd+Mm+Yy+h+m+s;
+            },
+            showMainArrow(i) {
+                this.counter++;
+                // this.arrowClicked = !this.arrowClicked;
+                if (this.counter % 2 === 1) {
+                    this.currentMainArrow = i;
+                } else {
+                    this.currentMainArrow = null;
+                }
+                console.log(this.counter);
+                
             }
         },
         computed: {
