@@ -74,7 +74,14 @@
                                     <i class="fas fa-search"></i>
                                 </div>
                             </label>
-                            <input type="text" name="" id="contacts-search" placeholder="Cerca o inizia una nuova chat">
+                            <input
+                            type="text"
+                            name=""
+                            id="contacts-search"
+                            placeholder="Cerca o inizia una nuova chat"
+                            v-model="searchContact"
+                            @keyup="search"
+                            >
                         </div>
                     </div>
                     <!-- /Contacts Input -->
@@ -86,6 +93,7 @@
                         class="contact-box"
                         v-for="(item, index) in contacts"
                         :class="{'contact--active' : currentContact === index}"
+                        v-if="item.visible"
                         >
                             <div class="contact-user">
                                 <div>
@@ -95,7 +103,7 @@
                                 
                                 <div class="contact-name-date">
                                     <h3>{{ item.name }}</h3>
-                                    <span class="contact-date">12:00</span>
+                                    <span class="contact-date">{{ item.messages[item.messages.length - 1].date }}</span>
                                     <span class="contact-text">{{ item.messages[item.messages.length - 1].message }}</span>
                                 </div>
                                 
@@ -138,12 +146,15 @@
                 <div class="main-right-center">
                     <div class="container">
                         <!-- 'right-mess' : element.status === 'sent'  -->
-                        <div :class="element.status === 'sent' ? 'right-mess' : 'left-mess'" v-for="element in contacts[currentContact].messages">
+                        <div
+                        :class="element.status === 'sent' ? 'right-mess' : 'left-mess'"
+                        v-for="element in contacts[currentContact].messages"
+                        >
                             <div :class="element.status === 'sent' ? 'mess sent' : 'mess received'">
                                 <span>
                                     {{ element.message }}
                                 </span>
-                                <div class="mess-date">12:00</div>
+                                <div class="mess-date">{{ element.date }}</div>
                             </div>
                         </div>
                         <!-- <div class="right-mess">

@@ -167,6 +167,7 @@ const app = new Vue(
             ],
             currentContact: 0,
             userMessageSent: '',
+            searchContact: '',
         },
         methods: {
             showChat(i) {
@@ -175,6 +176,28 @@ const app = new Vue(
             addMessageSent() {
 
                 if (this.userMessageSent !== '') {
+
+                    let counter = 2;
+
+                    const time = setInterval(() => {
+                        counter--;
+                        console.log("tra", counter, 'secondi ti rispondero');
+
+                        if (counter <= 0) {
+
+                            this.contacts[this.currentContact].messages.push(
+                                {
+                                    date: '',
+                                    message: 'ok!!',
+                                    status: 'received'
+                                }
+                            )
+                            clearInterval(time)
+
+                        }
+
+                    }, 1000);
+
                     this.contacts[this.currentContact].messages.push(
                         {
                             date: '',
@@ -184,27 +207,21 @@ const app = new Vue(
                     )
                     this.userMessageSent = '';
                 }
+            },
+            search() {
+                console.log(this.searchContact);
 
-                let counter = 0;
+                for (let i = 0; i < this.contacts.length; i++ ) {
+                    let contact = this.contacts[i];
+                    // console.log(currentContact);
 
-                const time = setInterval(() => {
-                    counter++;
-                    console.log(counter);
-                }, 1000);
-
-                if (counter >= 2) {
-                    this.contacts[this.currentContact].messages.push(
-                        {
-                            date: '',
-                            message: 'Ok!!',
-                            status: 'received'
-                        }
-                    )
-                    clearInterval(time)
-                } else {
-                    console.log("non funziona");
-                    clearInterval(time)
-
+                    if (contact.name.substr(0, contact.name.length).toLowerCase().includes(this.searchContact)) {
+                        contact.visible = true;
+                    } else if(this.searchContact === "") {
+                        contact.visible = true
+                    } else {
+                        contact.visible = false;
+                    }
                 }
 
             },
