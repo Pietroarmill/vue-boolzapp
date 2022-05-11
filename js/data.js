@@ -164,8 +164,56 @@ const app = new Vue(
                         }
                     ],
                 }
-            ]
+            ],
+            currentContact: 0,
+            userMessageSent: '',
+        },
+        methods: {
+            showChat(i) {
+                this.currentContact = i;
+            },
+            addMessageSent() {
+
+                if (this.userMessageSent !== '') {
+                    this.contacts[this.currentContact].messages.push(
+                        {
+                            date: '',
+                            message: this.userMessageSent,
+                            status: 'sent'
+                        }
+                    )
+                    this.userMessageSent = '';
+                }
+
+                let counter = 0;
+
+                const time = setInterval(() => {
+                    counter++;
+                    console.log(counter);
+                }, 1000);
+
+                if (counter >= 2) {
+                    this.contacts[this.currentContact].messages.push(
+                        {
+                            date: '',
+                            message: 'Ok!!',
+                            status: 'received'
+                        }
+                    )
+                    clearInterval(time)
+                } else {
+                    console.log("non funziona");
+                    clearInterval(time)
+
+                }
+
+            },
+
+        },
+        computed: {
             
+        },
+        mounted() {
         }
     }
 )

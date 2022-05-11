@@ -81,7 +81,12 @@
 
                     <!-- Contacts List -->
                     <div class="contacts-list-box">
-                        <div class="contact-box" v-for="(item, index) in contacts">
+                        <div
+                        @click="showChat(index)"
+                        class="contact-box"
+                        v-for="(item, index) in contacts"
+                        :class="{'contact--active' : currentContact === index}"
+                        >
                             <div class="contact-user">
                                 <div>
                                     <img :src="'img/avatar'+ item.avatar +'.jpg'" alt="">
@@ -91,7 +96,7 @@
                                 <div class="contact-name-date">
                                     <h3>{{ item.name }}</h3>
                                     <span class="contact-date">12:00</span>
-                                    <span class="contact-text">{{ item.messages[1].message }}</span>
+                                    <span class="contact-text">{{ item.messages[item.messages.length - 1].message }}</span>
                                 </div>
                                 
                             </div>
@@ -112,10 +117,10 @@
 
                     <div class="contact-user">
                         <span class="user-image">
-                            <img src="img/avatar_1.jpg" alt="">
+                            <img :src="'img/avatar'+ contacts[currentContact].avatar +'.jpg'" alt="">
                         </span>
                         <span class="user-name">
-                            <span>Michele</span>
+                            <span>{{ contacts[currentContact].name }}</span>
                             <span class="gray-color">Ultimo accesso oggi alle 12:00</span>
                         </span>
                     </div>
@@ -132,16 +137,16 @@
                 <!-- Main Right Center -->
                 <div class="main-right-center">
                     <div class="container">
-                       
-                        <div class="left-mess">
-                            <div class="mess received">
-                                <span class="">
-                                    ciaoooooooooooooooo
+                        <!-- 'right-mess' : element.status === 'sent'  -->
+                        <div :class="element.status === 'sent' ? 'right-mess' : 'left-mess'" v-for="element in contacts[currentContact].messages">
+                            <div :class="element.status === 'sent' ? 'mess sent' : 'mess received'">
+                                <span>
+                                    {{ element.message }}
                                 </span>
                                 <div class="mess-date">12:00</div>
                             </div>
                         </div>
-                        <div class="right-mess">
+                        <!-- <div class="right-mess">
                             <div class="mess sent">
                                 <span class="">
                                     Hai portato a spasso il cane?
@@ -165,7 +170,7 @@
                                 </span>
                                 <div class="mess-date">12:00</div>
                             </div>
-                        </div>
+                        </div> -->
                        
                         
                     </div>
@@ -174,9 +179,19 @@
 
                 <!-- Main Right bottom -->
                 <div class="main-right-bottom">
+
                     <div class="emoji-icon"><i class="far fa-smile"></i></div>
-                    <div class="input-message"><input type="text" placeholder="Scrivi un messaggio"></div>
+
+                    <div class="input-message">
+                        <input
+                        type="text"
+                        placeholder="Scrivi un messaggio"
+                        v-model="userMessageSent"
+                        @keyup.enter="addMessageSent">
+                    </div>
+
                     <div class="vocal-icon"><i class="fas fa-microphone"></i></div>
+
                 </div>
                 <!-- /Main Right bottom -->
            </div>
