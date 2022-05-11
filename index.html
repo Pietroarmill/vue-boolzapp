@@ -103,7 +103,7 @@
                                 
                                 <div class="contact-name-date">
                                     <h3>{{ item.name }}</h3>
-                                    <span class="contact-date">{{ item.messages[item.messages.length - 1].date }}</span>
+                                    <span class="contact-date">{{ item.messages[item.messages.length - 1].date.substring(0,16) }}</span>
                                     <span class="contact-text">{{ item.messages[item.messages.length - 1].message }}</span>
                                 </div>
                                 
@@ -154,7 +154,7 @@
                                 <span>
                                     {{ element.message }}
                                 </span>
-                                <div class="mess-date">{{ element.date }}</div>
+                                <div class="mess-date">{{ element.date.substring(11,16) }}</div>
                             </div>
                         </div>
                         <!-- <div class="right-mess">

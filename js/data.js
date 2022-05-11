@@ -187,7 +187,7 @@ const app = new Vue(
 
                             this.contacts[this.currentContact].messages.push(
                                 {
-                                    date: '',
+                                    date: this.newDate(),
                                     message: 'ok!!',
                                     status: 'received'
                                 }
@@ -200,7 +200,7 @@ const app = new Vue(
 
                     this.contacts[this.currentContact].messages.push(
                         {
-                            date: '',
+                            date: this.newDate(),
                             message: this.userMessageSent,
                             status: 'sent'
                         }
@@ -225,7 +225,21 @@ const app = new Vue(
                 }
 
             },
+            newDate() {
 
+                let data = new Date();
+                let Dd, Mm, Yy, h, m, s;
+                
+                Dd = data.getDate() + '/';
+                Mm = '0' + data.getMonth() + '/';
+                Yy = data.getFullYear() + ' ';
+                h = data.getHours() + ':';
+                m = data.getMinutes() + ":";
+                s = data.getSeconds() + "";
+                console.log(Dd+Mm+Yy+h+m+s);
+            
+                return Dd+Mm+Yy+h+m+s;
+            }
         },
         computed: {
             
@@ -234,3 +248,4 @@ const app = new Vue(
         }
     }
 )
+
