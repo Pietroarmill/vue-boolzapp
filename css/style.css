@@ -13,16 +13,22 @@ html {
     font-family: 'Lato', sans-serif;
 }
 
-/* UTILITY */
-.last-acc-mess {
-    color: #b1b1b1;
-    font-size: 1.2rem;
+:root {
+    --small-text-color: #aaaaaa;
+    --section-bg-color: #e7e7e7;
+    --icon-and-border-color: #b1b1b1;
+    --notification-color: #8edafc;
+    --message-sent-color: #d5f9ba;
+    --message-received-color: #ffffff;
+    --icon-message-color: #808080;
 }
 
-.gray-color {
-    color: gray;
+/* UTILITY */
+.small-text-cong {
     font-size: .8rem;
+    color: var(--small-text-color)
 }
+
 
 /* MAIN */
 
@@ -43,15 +49,14 @@ main {
 .main-left {
     width: 40%;
     height: 100%;
-    background-color: white;
 }
 
 .main-left-top {
     width: 100%;
     height: 70px;
-    background-color: #eaeaea;
+    background-color: var(--section-bg-color);
     display: flex;
-    border-right: .1px solid #b1b1b1;
+    border-right: .1px solid var(--icon-and-border-color);
 }
 
 .main-left-top .user-box {
@@ -70,7 +75,7 @@ main {
 .main-left-top .user-button {
     width: 50%;
     height: 100%;
-    color: #b1b1b1;
+    color: var(--icon-and-border-color);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -90,7 +95,7 @@ main {
 }
 
 .notifications-box {
-    background-color: #8edafc;
+    background-color: var(--notification-color);
     display: flex;
     align-items: center;
     padding: 15px 20px;
@@ -100,13 +105,13 @@ main {
     border-radius: 50%;
     font-size: 1.3rem;
     padding: 11px 10px;
-    color: #8edafc;
+    color: var(--notification-color);
     background-color: white;
     margin-right: 10px;
 }
 
 .notifications-text span:first-child {
-    font-size: .8rem;
+    font-size: .9rem;
     font-weight: 550;
 }
 
@@ -118,7 +123,7 @@ main {
 /* Contacts Input */
 .contacts-input-box {
     padding: 7.5px;
-    background-color: #f3f3f3;
+    background-color: #f5f5f5;
 }
 
 .contacts-input {
@@ -126,7 +131,7 @@ main {
     width: 100%;
     height: 30px;
     display: flex;
-    box-shadow: .5px .5px 1px 1px rgba(214, 214, 214, 0.548);
+    box-shadow: .5px .5px 1px 1px rgba(230, 230, 230, 0.548);
 }
 
 .contacts-input .input-icon {
@@ -135,8 +140,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid lightgray;
-    color: #b1b1b1;
+    border-right: .1px solid rgb(238, 238, 238);
+    color: var(--icon-and-border-color);
 }
 
 .contacts-input input {
@@ -148,7 +153,7 @@ main {
 }
 
 .contacts-input input:focus {
-    border: 1px solid rgba(211, 211, 211, 0.712);
+    border: .5px solid var(--icon-and-border-color);
 }
 
 /* Contacts list */
@@ -163,7 +168,7 @@ main {
     align-items: center;
     padding: 10px 5px 10px 20px;
     position: relative;
-    border-bottom: .1px solid rgb(238, 237, 237);
+    border-bottom: .1px solid #f5f3f3;
 }
 
 .contact-box img {
@@ -186,21 +191,14 @@ main {
     font-weight: 600;
 }
 
-.contact-text {
-    font-size: .8rem;
-    color: #b1b1b1;
-}
-
 .contact-date {
     position: absolute;
     right: 20px;
     top: 10px;
-    color: #b1b1b1;
-    font-size: .7rem;
 }
 
 .contact--active {
-    background-color: #dddddd;
+    background-color: #e0e0e0;
 }
 
 
@@ -209,14 +207,13 @@ main {
 .main-right {
     width: 60%;
     height: 100%;
-    background-color: lightpink;
 }
 
 /* Main Right Top */
 .main-right-top {
     height: 70px;
     width: 100%;
-    background-color: #eaeaea;
+    background-color: var(--section-bg-color);
     display: flex;
     align-items: center;
 }
@@ -237,7 +234,7 @@ main {
     display: flex;
     justify-content: flex-end;
     margin-right: 20px;
-    color: #b1b1b1;
+    color: var(--icon-and-border-color);
 }
 
 .main-right-top .user-name {
@@ -274,11 +271,11 @@ main {
 }
 
 .container .received {
-    background-color: white;
+    background-color: var(--message-received-color);
 }
 
 .container .sent {
-    background-color: #d5f9ba;
+    background-color: var(--message-sent-color);
     padding-right: 50px;
 }
 
@@ -294,13 +291,12 @@ main {
 
 /* Arrow Down */
 .arrow-down {
-    color: gray;
+    color: var(--icon-and-border-color);
     position: absolute;
     top: 4px;
     right: 10px;
     font-size: .8rem;
     display: none;
-    /* transition: 100s; */
     cursor: pointer;
 }
 
@@ -333,7 +329,6 @@ main {
 
 .main-arrow-active {
     display: block;
-    transition: .3s;
 }
 
 
@@ -343,7 +338,7 @@ main {
     position: absolute;
     bottom: 3px;
     right: 3px;
-    color: gray;
+    color: var(--icon-and-border-color);
     font-size: .7rem;
 }
 
@@ -351,7 +346,7 @@ main {
 .main-right-bottom {
     width: 100%;
     height: 55px;
-    background-color: #eaeaea;
+    background-color: var(--section-bg-color);
     display: flex;
     align-items: center;
 }
@@ -359,13 +354,14 @@ main {
 .emoji-icon {
     width: 10%;
     font-size: 1.5rem;
-    color: gray;
+    color: var(--icon-message-color);
     text-align: center;
 }
 
 .input-message {
     width: 80%;
-    background-color: #d7f1fd;
+    background-color: white;
+    border-radius: 7px;
 }
 
 .input-message input {
@@ -374,7 +370,7 @@ main {
     padding-left: 15px;
     outline: none;
     border: transparent;
-    border-radius: 5px;
+    border-radius: 7px;
     transition: .1s;
 }
 
@@ -386,6 +382,5 @@ main {
     width: 10%;
     text-align: center;
     font-size: 1.5rem;
-    color: gray;
-
+    color: var(--icon-message-color);
 }

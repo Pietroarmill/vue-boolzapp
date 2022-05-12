@@ -9,19 +9,16 @@ const app = new Vue(
                     visible: true,
                     messages: [
                         {
-                            id: 0,
                             date: '10/01/2020 15:30:55',
                             message: 'Hai portato a spasso il cane?',
                             status: 'sent'
                         },
                         {
-                            id: 1,
                             date: '10/01/2020 15:50:00',
                             message: 'Ricordati di stendere i panni',
                             status: 'sent'
                         },
                         {
-                            id: 2,
                             date: '10/01/2020 16:15:22',
                             message: 'Tutto fatto!',
                             status: 'received'
@@ -248,13 +245,7 @@ const app = new Vue(
                 return Dd+Mm+Yy+h+m+s;
             },
             showMainArrow(i) {
-                // this.counter++;
-                // if (this.counter % 2 === 1) {
-                //     this.currentMainArrow = i;
-                // } else {
-                //     this.currentMainArrow = null;
-                // }
-                // console.log(this.counter);
+
                 this.arrowClicked = !this.arrowClicked;
 
                 if (this.arrowClicked === true) {
@@ -262,7 +253,6 @@ const app = new Vue(
                 } else {
                     this.currentMainArrow = null;
                 }
-                // console.log(this.counter);
                 
             },
             deleteMessage(i) {

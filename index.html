@@ -103,8 +103,8 @@
                                 
                                 <div class="contact-name-date">
                                     <h3>{{ item.name }}</h3>
-                                    <span class="contact-date">{{ item.messages[item.messages.length - 1].date.substring(0,16) }}</span>
-                                    <span class="contact-text">{{ item.messages[item.messages.length - 1].message }}</span>
+                                    <small class="small-text-cong">{{ item.messages[item.messages.length - 1].message }}</small>
+                                    <small class="contact-date small-text-cong">{{ item.messages[item.messages.length - 1].date.substring(0,16) }}</small>
                                 </div>
                                 
                             </div>
@@ -129,7 +129,7 @@
                         </span>
                         <span class="user-name">
                             <span>{{ contacts[currentContact].name }}</span>
-                            <span class="gray-color">{{ contacts[currentContact].messages[contacts[currentContact].messages.length - 1].date.substring(0,16) }}</span>
+                            <small class="small-text-cong">Ultimo accesso: {{ contacts[currentContact].messages[contacts[currentContact].messages.length - 1].date.substring(0,16) }}</small>
                         </span>
                     </div>
 
